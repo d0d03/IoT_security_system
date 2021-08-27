@@ -1,5 +1,6 @@
 package com.dodo.IoT_test.repository;
 
+import java.sql.Timestamp;
 import java.sql.Types;
 
 import org.slf4j.Logger;
@@ -19,10 +20,10 @@ public class MotionDAOImpl implements MotionDAO {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MotionDAOImpl.class);
 	
 	@Override
-	public boolean createMotion(Motion motion) {
-		String query = "INSERT INTO motions (tstamp) VALUES (?)";
+	public boolean createMotion() {
+		String sql = "INSERT INTO motions (tstamp) VALUES (?)";
 		try {
-			jdbcTemp.update(query, new Object[] { motion.getTimestamp() }, new int[] {Types.TIMESTAMP});
+			jdbcTemp.update(sql, new Object[] { new Timestamp(System.currentTimeMillis()) }, new int[] {Types.TIMESTAMP});
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();

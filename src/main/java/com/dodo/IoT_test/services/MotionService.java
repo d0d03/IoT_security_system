@@ -4,5 +4,5 @@ import com.dodo.IoT_test.entities.Motion;
 
 public interface MotionService {
 
-	public boolean createMotion(Motion motion);
+	public boolean createMotion();
 }

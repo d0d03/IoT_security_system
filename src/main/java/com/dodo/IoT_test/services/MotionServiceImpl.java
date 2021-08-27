@@ -13,8 +13,8 @@ public class MotionServiceImpl implements MotionService{
 	private MotionDAO motionDAO;
 	
 	@Override
-	public boolean createMotion(Motion motion) {
-		return this.motionDAO.createMotion(motion);
+	public boolean createMotion() {
+		return this.motionDAO.createMotion();
 	}
 
 }
