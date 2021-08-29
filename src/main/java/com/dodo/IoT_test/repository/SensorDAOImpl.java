@@ -50,4 +50,38 @@ public class SensorDAOImpl implements SensorDAO {
 		}
 		return sensor;
 	}
+	
+	@Override
+	public boolean setAlarmState(boolean alarmState) {
+		String sql = "UPDATE sensors "
+				+ "SET sensor_state = ? "
+				+ "WHERE sensor_name = 'ALARM'";
+		try {
+			jdbcTemp.update(sql,new Object[] {alarmState}, new int[] {Types.BOOLEAN});
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			LOGGER.error("Greška pri promjeni stanja alarma");
+			return false;
+		}	
+	}
+	
+	@Override
+	public boolean setSensorState(boolean sensorState) {
+		String sql = "UPDATE sensors "
+				+ "SET sensor_state = ? "
+				+ "WHERE sensor_name = 'PIR_SENSOR'";
+		if(!sensorState) {
+			sql = "UPDATE sensors "
+					+ "SET sensor_state = ?";
+		}
+		try {
+			jdbcTemp.update(sql,new Object[] {sensorState},new int[] {Types.BOOLEAN});
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			LOGGER.error("Greška pri promjeni stanja PIR snzora");
+			return false;
+		}
+	}
 }

@@ -5,8 +5,8 @@
 #include <Ticker.h>
 
 //WIFI postavke
-const char* ssid = "1FDB41"; //Enter SSID
-const char* password = "EVW32C0S00019080"; //Enter Password
+const char* ssid = "dodo"; 
+const char* password = "nanab69D";
 
 //IFTTT API
 const char* notificationHost = "maker.ifttt.com";
@@ -16,8 +16,8 @@ const char* apiKey = "iwXcWXZ99nZJvkK8IJX-SvhqVbJ2o3Ljuw_ynvWDQB6";
 //const int port = 8080;
 
 //backend rute
-const char* checkSensorAPI = "http://192.168.0.15:8080/checkSensorState";
-const char* logMotionAPI = "http://192.168.0.15:8080/motionDetected";
+const char* checkSensorAPI = "http://192.168.141.96:8080/checkSensorState";
+const char* logMotionAPI = "http://192.168.141.96:8080/motionDetected";
 
 //hardware pinovi
 const int buzzerPin = 2;

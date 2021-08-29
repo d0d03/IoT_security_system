@@ -2,6 +2,8 @@ package com.dodo.IoT_test.repository;
 
 import java.sql.Timestamp;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +32,21 @@ public class MotionDAOImpl implements MotionDAO {
 			LOGGER.error("Greška pri umetanju zapisa u tablicu motions");
 		}
 		return false;
+	}
+	
+	@Override
+	public List<Motion> getAllMotions(){
+		String sql = "SELECT * FROM motions";
+		List<Motion> motions = new ArrayList<Motion>();
+		try {
+			motions = jdbcTemp.query(sql, (rs,rowNum)->
+				new Motion(rs.getInt("id"), rs.getTimestamp("tstamp"))
+			);
+		}catch(Exception e) {
+			e.printStackTrace();
+			LOGGER.error("Greška pri dohvaćanju tablice motions");
+		}
+		return motions;
 	}
 
 }

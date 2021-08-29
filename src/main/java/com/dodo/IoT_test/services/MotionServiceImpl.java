@@ -1,5 +1,7 @@
 package com.dodo.IoT_test.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,11 @@ public class MotionServiceImpl implements MotionService{
 	@Override
 	public boolean createMotion() {
 		return this.motionDAO.createMotion();
+	}
+	
+	@Override
+	public List<Motion> getAllMotions(){
+		return this.motionDAO.getAllMotions();
 	}
 
 }

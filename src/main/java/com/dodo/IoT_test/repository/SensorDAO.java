@@ -8,4 +8,6 @@ public interface SensorDAO {
 
 	public List<Sensor> getAllSensors();
 	public Sensor getSensorByName(String sensorName);
+	public boolean setAlarmState(boolean alarmState);
+	public boolean setSensorState(boolean sensorState);
 }
